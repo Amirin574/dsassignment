@@ -145,7 +145,8 @@ class MainWindowController( private val txtName: TextField,
   // this handles when a user wants to start a personal chat with another user we will send a request to chatclient and the chatclient
   //will route the user involved to open a new window to show their private chat
   def startPrivateChat() : Unit = {
-    if (listUser.selectionModel().selectedIndex.value >= 0) {
+    if(listUser.selectionModel().selectedItem.value.ref  != chatClientRef.get) {
+      if (listUser.selectionModel().selectedIndex.value >= 0) {
         var privateChatList : List[User] = List()
         listUser.getItems.foreach {
           user =>
@@ -154,7 +155,18 @@ class MainWindowController( private val txtName: TextField,
             }
         }
         Client.greeterMain ! ChatClient.StartPrivateChat(privateChatList)
+      }
+    } else {
+
+      val alert = new Alert(AlertType.Information) {
+        title = "Error Private Chat"
+        headerText = "Could not start private chat"
+        contentText = "You are not allowed to start private chat on yourself"
+      }
+      alert.showAndWait()
+
     }
+
 
   }
 
