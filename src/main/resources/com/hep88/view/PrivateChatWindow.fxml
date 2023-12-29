@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.hep88.view.PrivateChatWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="privateChatMessages" layoutX="47.0" layoutY="53.0" prefHeight="330.0" prefWidth="278.0" />
+            <ListView fx:id="privateChatList" layoutX="391.0" layoutY="53.0" prefHeight="112.0" prefWidth="200.0" />
+            <Text layoutX="119.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Private Chat Messages" />
+            <Text layoutX="469.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User List" />
+            <Text layoutX="47.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message : " />
+            <Button onAction="#updatePrivateChatMessage" layoutX="439.0" layoutY="446.0" mnemonicParsing="false" text="Send Message" />
+            <TextField fx:id="textMessage" layoutX="119.0" layoutY="446.0" prefHeight="25.0" prefWidth="280.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
